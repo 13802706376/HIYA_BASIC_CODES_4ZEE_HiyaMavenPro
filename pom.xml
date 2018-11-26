@@ -1,0 +1,329 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.hiya.ee</groupId>
+  <artifactId>HiyaMavenPro</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+   <properties>
+        <project.encoding>UTF-8</project.encoding>
+        <maven.compiler.encoding>${project.encoding}</maven.compiler.encoding>
+   </properties>
+    
+   <dependencies>
+        <dependency>
+            <groupId>yunnex</groupId>
+            <artifactId>interface-base</artifactId>
+            <version>3.5.0</version>
+        </dependency>
+    </dependencies>
+    <build>
+	    <plugins>
+		    <plugin>
+		       <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+		    </plugin>
+	    </plugins>
+    </build>
+       <distributionManagement>
+                <repository>
+                    <id>releases</id>
+                    <name>Releases Repository</name>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/repositories/releases</url>
+                </repository>
+                <snapshotRepository>
+                    <id>snapshots</id>
+                    <name>Snapshots Repository</name>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/repositories/snapshots</url>
+                </snapshotRepository>
+            </distributionManagement>
+</project>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<localRepository>D:\maven\repository</localRepository>
+  <pluginGroups>
+  </pluginGroups>
+  <proxies>
+  </proxies>
+  <servers>
+	<server>
+		<id>releases</id>
+		<username>deployment</username>
+		<password>deployment123</password>
+	</server>
+	<server>
+		<id>snapshots</id>
+		<username>deployment</username>
+		<password>deployment123</password>
+	</server>
+	</servers>
+  <mirrors>
+    <mirror>
+      <id>Nexus</id>
+	  <mirrorOf>central</mirrorOf>
+      <name>Nexus Public Mirror</name>
+      <url>http://nexus.dev.yunnex.com/nexus/content/groups/public/</url>
+    </mirror>
+  </mirrors>
+  <profiles>
+<profile>    
+    <id>jdk-1.8</id>    
+    <activation>    
+        <activeByDefault>true</activeByDefault>    
+        <jdk>1.8</jdk>    
+    </activation>    
+    <properties>    
+        <maven.compiler.source>1.8</maven.compiler.source>    
+        <maven.compiler.target>1.8</maven.compiler.target>    
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>    
+    </properties>    
+</profile> 
+<profile>  
+  <id>nexus</id>  
+  <repositories>  
+	<repository>  
+	  <id>releases</id>  
+	  <url>http://nexus.dev.yunnex.com/nexus/content/repositories/releases</url>  
+	  <releases><enabled>true</enabled></releases>
+	</repository>  
+	<repository>  
+	  <id>snapshots</id>  
+	  <url>http://nexus.dev.yunnex.com/nexus/content/repositories/snapshots</url>
+	  <snapshots><enabled>true</enabled></snapshots>  
+	</repository>  
+  </repositories>  
+  <pluginRepositories>  
+	 <pluginRepository>  
+			<id>releases</id>  
+			 <url>http://nexus.dev.yunnex.com/nexus/content/repositories/releases</url>  
+			 <releases><enabled>true</enabled></releases>
+		   </pluginRepository>  
+		   <pluginRepository>  
+			 <id>snapshots</id>  
+			  <url>http://nexus.dev.yunnex.com/nexus/content/repositories/snapshots</url>
+			 <snapshots><enabled>true</enabled></snapshots>
+      </pluginRepository>  
+  </pluginRepositories>
+</profile>
+	
+<profile>
+	<id>disable-javadoc-doclint</id>
+	<activation>
+		<jdk>[1.8,)</jdk>
+	</activation>
+	<properties>
+		<additionalparam>-Xdoclint:none</additionalparam>
+	</properties>
+</profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles>
+</settings>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>yunnex.erp</groupId>
+    <artifactId>ops-facade-erp</artifactId>
+    <version>1.0.0</version>
+    <name>ops-facade-erp</name>
+    <description>运营项目dubbo接口</description>
+
+    <properties>
+        <project.encoding>UTF-8</project.encoding>
+        <maven.compiler.encoding>${project.encoding}</maven.compiler.encoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>yunnex</groupId>
+            <artifactId>interface-base</artifactId>
+            <version>3.5.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <repositories>
+                <repository>
+                    <id>dev</id>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/groups/public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <properties>
+                <package.environment>dev</package.environment>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>dev</id>
+                    <name>Nexus Releases Repository</name>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/repositories/Dev</url>
+                </repository>
+                <snapshotRepository>
+                    <id>snapshots</id>
+                    <name>Nexus Snapshots Repository</name>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/repositories/snapshots</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>test</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.zt</groupId>
+                        <artifactId>asset-cache-control</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+            <repositories>
+                <repository>
+                    <id>release</id>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/repositories/releases</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+            </repositories>
+            <distributionManagement>
+                <repository>
+                    <id>dev</id>
+                    <name>Nexus Releases Repository</name>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/repositories/Dev</url>
+                </repository>
+                <snapshotRepository>
+                    <id>snapshots</id>
+                    <name>Nexus Snapshots Repository</name>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/repositories/snapshots</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.zt</groupId>
+                        <artifactId>asset-cache-control</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+            <properties>
+                <package.environment>prod</package.environment>
+            </properties>
+            <repositories>
+                <repository>
+                    <id>release</id>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/repositories/releases</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+                <repository>
+                    <id>thirdparty</id>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/repositories/thirdparty</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+            </repositories>
+            <distributionManagement>
+                <repository>
+                    <id>release</id>
+                    <name>Nexus Releases Repository</name>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/repositories/releases</url>
+                </repository>
+                <snapshotRepository>
+                    <id>snapshots</id>
+                    <name>Nexus Snapshots Repository</name>
+                    <url>http://nexus.dev.yunnex.com/nexus/content/repositories/snapshots</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+</project>
+ -->
